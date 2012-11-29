@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
+  revision: 36060be332ffc8408daca5cee20ea5694261105b
+  branch: static
+  specs:
+    twitter-bootstrap-rails (2.0.7)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,6 +38,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -103,9 +113,11 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   jquery-rails
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
   sqlite3
+  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)

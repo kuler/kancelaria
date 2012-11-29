@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  shortname: MyString
+  fullname: MyString
+  active: false
+  contact: MyString
+  nip: MyString
+  regon: MyString
+  address: MyString
+  created: 2012-11-29 23:09:21
+
+two:
+  shortname: MyString
+  fullname: MyString
+  active: false
+  contact: MyString
+  nip: MyString
+  regon: MyString
+  address: MyString
+  created: 2012-11-29 23:09:21
