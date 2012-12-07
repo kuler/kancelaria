@@ -1,2 +1,4 @@
-class Client < ActiveRecord::Base
+class Client < ActiveRecord::
+	belongs_to: :user
+	has_many :cases
 end

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kancelaria</title>
+  <title>Kancelaria | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="<%=controller.controller_name%>">
+  <div class="container-fluid">
+    <div class="row-fluid">    
+      <div class="span2">
+        <%= yield(:sidebar) %>
+      </div>
+      <div class="span10">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
