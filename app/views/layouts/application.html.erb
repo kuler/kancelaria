@@ -25,22 +25,23 @@
 				<div class="span2">
 					<!--Side content-->
 					<nav>
+						
 						<ul class="nav nav-pills nav-stacked">
 							<!--<li class="nav-header">List header</li>-->
-							<li class="active">
+							<li data-menu-item="calendar">
 								<a href="/calendar">Kalendarz</a>
 							</li>
-							<li>
-								<a href="/reports">Raporty</a>
+							<li data-menu-item="reports">
+								<%= link_to 'Raporty', nil %>
 							</li>
-							<li>
-								<a href="/cases">Sprawy</a>
+							<li data-menu-item="cases">
+								<%= link_to 'Sprawy', nil %>
 							</li>
-							<li>
-								<a href="/clients">Klienci</a>
+							<li data-menu-item="clients">
+								<%= link_to 'Klienci', clients_path %>
 							</li>
-							<li>
-								<a href="/users">Użytkownicy</a>
+							<li data-menu-item ="users">
+								<%= link_to 'Użytkownicy', users_path %>
 							</li>
 						</ul>
 						<%= yield(:nav) %>
@@ -58,6 +59,7 @@
 		$(function() {
 			$(document).ready(function() {
 				<%= yield :scripts %>
+				$('.nav li[data-menu-item="<%= controller.controller_name %>"]').addClass('active')
 			})
 		})		
 		</script>
