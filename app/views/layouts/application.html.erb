@@ -54,6 +54,12 @@
 				</div>
 			</div>
 		</div>
-
+		<script>
+		$(function() {
+			$(document).ready(function() {
+				<%= yield :scripts %>
+			})
+		})		
+		</script>
 	</body>
 </html>

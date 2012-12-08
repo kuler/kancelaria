@@ -4,7 +4,7 @@
 <%= f.input :fullname, wrapper: 'bootstrap' %>
 <%= f.input :active, wrapper: 'bootstrap' %>
 <%= f.input :contact, wrapper: 'bootstrap' %>
-<%= f.input :nip, wrapper: 'bootstrap' %>
+<%= f.input :nip, datawrapper: 'bootstrap' %>
 <%= f.input :regon, wrapper: 'bootstrap' %>
 <%= f.input :address, wrapper: 'bootstrap' %>
 
@@ -13,4 +13,8 @@
 	<%= link_to 'Back', clients_path, class: "btn" %>
 	<%= f.submit nil, class: "btn btn-primary" %>
 </div>
+<% end %>
+
+<% content_for :scripts do %>
+$('#client_nip').inputmask({"mask": "999-999-99-99"})
 <% end %>
