@@ -7,15 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%=controller.controller_name%>">
-  <div class="container-fluid">
-    <div class="row-fluid">    
-      <div class="span2">
-        <%= yield(:sidebar) %>
-      </div>
-      <div class="span10">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+  <header class="page-header">
+    <h1>Kancelaria<small>online</small></h1>
+  </header>
+  <nav>
+    <%= yield(:nav) %>
+  </nav>
+  <section id='conent'>
+    <%= yield %>
+  </section>
 </body>
 </html>
