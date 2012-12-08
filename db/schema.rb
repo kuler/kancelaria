@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207224620) do
+ActiveRecord::Schema.define(:version => 20121207234642) do
 
   create_table "cases", :force => true do |t|
     t.string   "name"
@@ -42,12 +42,13 @@ ActiveRecord::Schema.define(:version => 20121207224620) do
     t.integer  "priority"
     t.datetime "created"
     t.datetime "assigned"
-    t.datetime "finished"
+    t.datetime "completed"
     t.boolean  "active"
     t.integer  "total"
     t.integer  "invoice"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.datetime "planned"
   end
 
   create_table "users", :force => true do |t|
