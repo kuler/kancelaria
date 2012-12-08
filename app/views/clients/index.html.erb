@@ -1,13 +1,10 @@
-<h2>Klienci</h2>
+<h2><%=t(:clients)%></h2>
 
 <table class="table table-striped">
   <tr>
-    <th>Skrót</th>
-    <th>Pełna nazwa</th>
-    <th>Kontakt</th>
-    <th>NIP</th>
-    <th>REGON</th>
-    <th>Adres</th>
+    <th><%=t('simple_form.labels.client.shortname')%></th>
+    <th><%=t('simple_form.labels.client.fullname')%></th>
+    <th><%=t('simple_form.labels.client.contact')%></th>
     <th></th>    
   </tr>
 
@@ -16,19 +13,16 @@
     <td><%= client.shortname %></td>
     <td><%= client.fullname %></td>
     <td><%= client.contact %></td>
-    <td><%= client.nip %></td>
-    <td><%= client.regon %></td>
-    <td><%= client.address %></td>
     <td>
-    <%= link_to 'Pokaż', client, class: "btn btn-mini" %>
-    <%= link_to 'Edytuj', edit_client_path(client), class: "btn btn-mini btn-primary" %>
-    <%= link_to 'Usuń', client, class: "btn btn-mini btn-danger", confirm: 'Are you sure?', method: :delete %></td>
+    <%= link_to t(:details), client, class: "btn btn-mini" %>
+    <%= link_to t(:edit), edit_client_path(client), class: "btn btn-mini btn-primary" %>
+    <%= link_to t(:remove), client, class: "btn btn-mini btn-danger", confirm: t('are you sure'), method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <div class="form-actions">
-	<%= link_to'Nowy klient', new_client_path, :class => 'btn btn-primary' %>
+	<%= link_to t(:new_client), new_client_path, :class => 'btn btn-primary' %>
 </div>
 
     

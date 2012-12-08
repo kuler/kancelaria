@@ -1,6 +1,4 @@
-<h1>Editing client</h1>
-
+<fieldset>
+<legend><%=t('editing')%>: <%=@client.shortname%></legend>
 <%= render 'form' %>
-
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+</fieldset>

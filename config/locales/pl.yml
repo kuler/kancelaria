@@ -1,0 +1,26 @@
+﻿
+pl:
+  #labelki
+  simple_form:
+    labels:
+      client:
+        shortname: "Nazwa skrócona"
+        fullname: "Pełna nazwa"
+        contact: "Dane kontaktowe"
+        nip: "NIP"
+        regon: "REGON"
+        address: "Adres"
+
+  #ogólne
+  details: "Szczegóły"
+  edit: "Edytuj"
+  editing: "Edytujesz"
+  remove: "Usuń"
+  are you sure: "Czy jesteś pewny?"
+  changes_saved: "Zmiany zapisano"
+  
+  #klienci
+  clients: "Klienci"
+  new_client: "Nowy klient"
+  client was successfully created: "Utworzono nowego klienta" 
+  
