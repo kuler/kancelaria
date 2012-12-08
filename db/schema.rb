@@ -38,16 +38,14 @@ ActiveRecord::Schema.define(:version => 20121207234642) do
   create_table "tasks", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "status"
     t.integer  "priority"
     t.datetime "created"
     t.datetime "assigned"
     t.datetime "completed"
-    t.boolean  "active"
-    t.integer  "total"
-    t.integer  "invoice"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "hours_total"
+    t.integer  "hours_invoice"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.datetime "planned"
   end
 
