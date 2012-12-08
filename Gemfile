@@ -39,3 +39,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 #Twitter Bootstrap
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'static'
+
+gem 'simple_form'
