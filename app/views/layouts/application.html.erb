@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>Kancelaria | <%= yield(:title) %></title>
@@ -10,11 +10,31 @@
   <header class="page-header">
     <h1>Kancelaria<small>online</small></h1>
   </header>
-  <nav>
-    <%= yield(:nav) %>
-  </nav>
-  <section id='conent'>
-    <%= yield %>
-  </section>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <!--Side content-->
+        <nav>
+          <ul class="nav nav-list">
+            <!--<li class="nav-header">List header</li>-->
+            <li class="active"><a href="/calendar">Kalendarz</a></li>
+            <li><a href="/reports">Raporty</a></li>
+            <li><a href="/cases">Sprawy</a></li>      
+            <li><a href="/clients">Klienci</a></li>
+            <li><a href="/users">Użytkownicy</a></li>
+          </ul>
+          <%= yield(:nav) %>
+        </nav>
+      </div>
+      <div class="span10">
+        <!--Body content-->
+        <section id='content'>
+          <%= yield %>
+        </section>
+      </div>
+    </div>
+  </div>
+  
+  
 </body>
 </html>
