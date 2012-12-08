@@ -1,9 +1,6 @@
-﻿
-<%= link_to'Nowy klient', new_client_path, :class => 'k-add btn btn-large btn-primary' %>
-
 <h2>Klienci</h2>
 
-<table class="table">
+<table class="table table-striped">
   <tr>
     <th>Skrót</th>
     <th>Pełna nazwa</th>
@@ -11,9 +8,7 @@
     <th>NIP</th>
     <th>REGON</th>
     <th>Adres</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th></th>    
   </tr>
 
 <% @clients.each do |client| %>
@@ -24,16 +19,17 @@
     <td><%= client.nip %></td>
     <td><%= client.regon %></td>
     <td><%= client.address %></td>
-    <td><%= link_to 'Pokaż', client %></td>
-    <td><%= link_to 'Edytuj', edit_client_path(client) %></td>
-    <td><%= link_to 'Usuń', client, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+    <%= link_to 'Pokaż', client, class: "btn btn-mini" %>
+    <%= link_to 'Edytuj', edit_client_path(client), class: "btn btn-mini btn-primary" %>
+    <%= link_to 'Usuń', client, class: "btn btn-mini btn-danger", confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-
+<div class="form-actions">
+	<%= link_to'Nowy klient', new_client_path, :class => 'btn btn-primary' %>
+</div>
 
     
 
