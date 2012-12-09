@@ -1,49 +1,15 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.text_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </div>
-  <div class="field">
-    <%= f.label :admin %><br />
-    <%= f.check_box :admin %>
-  </div>
-  <div class="field">
-    <%= f.label :created %><br />
-    <%= f.datetime_select :created %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for @user do |f| %>
+ 
+  <%= f.input :username, wrapper: 'bootstrap' %>
+  <%= f.input :password, wrapper: 'bootstrap' %>
+  <%= f.input :password_confirmation, wrapper: 'bootstrap' %>
+  <%= f.input :firstname, wrapper: 'bootstrap' %>
+  <%= f.input :lastname, wrapper: 'bootstrap' %>
+  <%= f.input :active, wrapper: 'bootstrap' %>
+  <%= f.input :admin, wrapper: 'bootstrap' %>
+ 
+  <div class="form-actions">
+  	<%= link_to 'Back', users_path, class: "btn" %>
+    <%= f.submit nil, class: "btn btn-primary" %>
   </div>
 <% end %>
