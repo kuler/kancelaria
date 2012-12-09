@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 	
 	before_save :encrypt_password
 	
+	validates :password, presence: true, confirmation: true
+  validates :username, presence: true, uniqueness: true
+	
 	def self.authenticate name, password
     user = User.find_by_name name
     if user && user.password == BCrypt::Engine.hash_secret(password, user.salt)
