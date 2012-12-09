@@ -16,3 +16,5 @@
 
 # Ignore .project file
 .project
+
+/vendor/cache/*

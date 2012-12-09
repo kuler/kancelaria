@@ -1,0 +1,76 @@
+<div id="calendar"></div>
+
+<% content_for :scripts do %>
+$('#calendar').fullCalendar({	
+	buttonText: {
+		today:    'dziś',
+	    month:    'miesiąc',
+	    week:     'tydzień',
+	    day:      'dzień'
+	},
+	allDayText: 'cały dzień',
+	dayNames: [
+		'Niedziela',
+		'Poniedziałek',
+		'Wtorek',
+		'Środa',
+		'Czwartek',
+		'Piątek',
+		'Sobota'
+	],
+	dayNamesShort: [
+		'niedz.',
+		'pon.',
+		'wt.',
+		'śr.',
+		'czw.',
+		'pt.',
+		'sob.'
+	],
+	monthNames: [ 
+		'Styczeń',
+		'Luty',
+		'Marzec',
+		'Kwiecień',
+		'Maj',
+		'Czerwiec',
+		'Lipiec',
+		'Sierpien',
+		'Wrzesień',
+		'Październik',
+		'Listopad',
+		'Grudzień'
+	],
+	monthNamesShort: [
+		'Sty',
+		'Lut',
+		'Mar',
+		'Kwi',
+		'Maj',
+		'Cze',
+		'Lip',
+		'Sie',
+		'Wrz',
+		'Paź',
+		'Lis',
+		'Gru'
+	],
+	firstDay: 1, // Monday
+	axisFormat: 'HH:mm',
+	timeFormat: {
+	    agenda: 'H:mm{ - h:mm}'
+	},
+	height: $(document).height() - $('.navbar').height() - 60,
+	windowResize: function(view) {
+		$(this).fullCalendar('option','height', $(document).height() - $('.navbar').height() - 60)
+	},
+	header: {
+		left: 'prev,next today',
+		center: 'title',
+		right: 'month,agendaWeek,agendaDay'
+	},
+	editable: true,
+	events: []
+
+})
+<% end %>
