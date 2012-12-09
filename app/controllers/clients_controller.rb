@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.find(:all, :conditions => {:active => true})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,7 +41,7 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(params[:client])
-
+    
     respond_to do |format|
       if @client.save
         format.html { redirect_to @client, notice: t('client was successfully created') }
@@ -73,7 +73,7 @@ class ClientsController < ApplicationController
   # DELETE /clients/1.json
   def destroy
     @client = Client.find(params[:id])
-    @client.destroy
+    @client.update_attribute :active, false
 
     respond_to do |format|
       format.html { redirect_to clients_url }

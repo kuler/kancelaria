@@ -1,6 +1,6 @@
 ﻿
 pl:
-  #labelki
+  #labels
   simple_form:
     labels:
       client:
@@ -10,17 +10,37 @@ pl:
         nip: "NIP"
         regon: "REGON"
         address: "Adres"
+      user:
+        username: "Nazwa użytkownika"
+        password: "Hasło"
+        password_confirm: "Powtórz ponownie hasło"
+        firstname: "Imię"
+        lastname: "Nazwisko"
+        active: "Aktywny"
+        admin: "Admin"
 
-  #ogólne
+  #defaults
   details: "Szczegóły"
   edit: "Edytuj"
+  back: "Wróć"
   editing: "Edytujesz"
   remove: "Usuń"
   are you sure: "Czy jesteś pewny?"
   changes_saved: "Zmiany zapisano"
+  created_at: "Utworzono"
+  "true": "Tak"
+  "false": "Nie"
   
-  #klienci
+  #clients
+  client: "Klient"
   clients: "Klienci"
   new_client: "Nowy klient"
-  client was successfully created: "Utworzono nowego klienta" 
+  client was successfully created: "Utworzono nowego klienta"
+  client data: "Dane klienta" 
   
+  #users
+  user: "Użytkownik"
+  users: "Użytkownicy"
+  new user: "Nowy użytkownik"
+  user was successfully created: "Utworzono nowego użytkownika"
+  user data: "Dane użytkownika"
