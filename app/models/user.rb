@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
   has_many :clients
   
-	attr_accessible :password_confirmation, :username, :password, :firstname, :lastname, :active, :admin
+	attr_accessible :password_confirmation, :name, :password, :firstname, :lastname, :active, :admin
 	attr_accessor :password_confirmation
 	
 	before_save :encrypt_password
 	
 	validates :password, presence: true, confirmation: true
-  validates :username, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 	
 	def self.authenticate name, password
     user = User.find_by_name name
