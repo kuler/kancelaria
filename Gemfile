@@ -18,6 +18,7 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem "chosen-rails", "~> 0.9.9"
 end
 
 gem 'jquery-rails'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209095016) do
+ActiveRecord::Schema.define(:version => 20121209194743) do
 
   create_table "cases", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20121209095016) do
     t.datetime "updated_at",                   :null => false
   end
 
+  create_table "task_types", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tasks", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -44,17 +51,19 @@ ActiveRecord::Schema.define(:version => 20121209095016) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.datetime "planned_at"
+    t.integer  "task_type_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "password_digest"
+    t.string   "name"
+    t.string   "password"
     t.string   "firstname"
     t.string   "lastname"
-    t.boolean  "active",          :default => true
+    t.boolean  "active",     :default => true
     t.boolean  "admin"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "salt"
   end
 
 end

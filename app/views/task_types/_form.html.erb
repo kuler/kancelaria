@@ -1,0 +1,27 @@
+<%= simple_form_for @task_type  do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :color, wrapper: :append do %>    	
+    	<%= f.text_field :color %>
+    	<span class="add-on" style="background-color: <%= @task_type.color %>"><i></i></span>	
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+  	<%= link_to 'Back', task_types_path, class: "btn" %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<% content_for :scripts do %>
+	$('#task_type_color')
+		.colorpicker()
+		.on('changeColor', function(ev) {
+			$('#task_type_color').val(ev.color.toHex())
+			$('span', $('#task_type_color').parent()).css('background-color', ev.color.toHex())
+		})
+		
+		$('#task_type_color').bind('change', function() {
+			$('span', $('#task_type_color').parent()).css('background-color', $(this).val())
+		})	
+<% end %>
