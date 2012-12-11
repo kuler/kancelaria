@@ -58,7 +58,8 @@ $('#calendar').fullCalendar({
 	firstDay: 1, // Monday
 	axisFormat: 'HH:mm',
 	timeFormat: {
-	    agenda: 'H:mm{ - h:mm}'
+		'': 'H:mm',
+	    agenda: 'H:mm{ - H:mm}'
 	},
 	height: $(document).height() - $('.navbar').height() - 60,
 	windowResize: function(view) {
@@ -70,7 +71,7 @@ $('#calendar').fullCalendar({
 		right: 'month,agendaWeek,agendaDay'
 	},
 	editable: true,
-	events: []
+	events: '<%= tasks_path format: :json %>'
 
 })
 <% end %>

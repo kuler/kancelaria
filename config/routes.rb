@@ -1,5 +1,6 @@
 Kancelaria::Application.routes.draw do
   resources :task_types
+  resources :tasks
 
   get "admin/index"
 

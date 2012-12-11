@@ -18,4 +18,24 @@
 //= require chosen.jquery
 //= require bootstrap-colorpicker
 //= require bootstrap-datepicker
+//= require bootstrap-datepicker.pl.js
+//= require bootstrap-timepicker
 //= require_tree .
+
+$(function() {
+	$(document).ready(function() {
+		$('.date-selector').datepicker({
+			format: 'dd/mm/yyyy',
+			weekStart: 1,
+			todayBtn: true,
+			todayHighlight: true,
+			language: 'pl'
+		})
+
+		$('.time-selector').timepicker({
+			defaultTime: 'value',	
+			showMeridian: false,
+			showInputs: false
+		})
+	})
+})

@@ -44,3 +44,10 @@ pl:
   new user: "Nowy użytkownik"
   user was successfully created: "Utworzono nowego użytkownika"
   user data: "Dane użytkownika"
+
+  #date
+  date:
+    order:
+      - :day
+      - :month
+      - :year
