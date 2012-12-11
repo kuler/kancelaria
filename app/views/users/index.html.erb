@@ -1,13 +1,13 @@
-<h1>Użytkownicy</h1>
+<h3><%=t('users')%></h3>
 
 <table class="table table-strip">
 	<thead>
 		<tr>
-			<th>Name</th>		
-			<th>Firstname</th>
-			<th>Lastname</th>
-			<th>Active</th>
-			<th>Admin</th>						
+			<th><%=t('simple_form.labels.user.name')%></th>		
+			<th><%=t('simple_form.labels.user.firstname')%></th>
+			<th><%=t('simple_form.labels.user.lastname')%></th>
+			<th><%=t('simple_form.labels.user.active')%></th>
+			<th><%=t('simple_form.labels.user.admin')%></th>						
 			<th></th>
 		</tr>
 	</thead>
@@ -17,15 +17,15 @@
 			<td><%= user.name %></td>
 			<td><%= user.firstname %></td>
 			<td><%= user.lastname %></td>
-			<td><%= user.active %></td>
-			<td><%= user.admin %></td>
-			<td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-mini btn-primary" %>
-			<%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini btn-danger" %></td>
+			<td><%= t(user.active.to_s) %></td>
+			<td><%= t(user.admin.to_s) %></td>
+			<td><%= link_to t('edit'), edit_user_path(user), class: "btn btn-mini btn-primary" %>
+			<%= link_to t('remove'), user, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini btn-danger" %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
 
 <div class="form-actions">
-	<%= link_to 'Nowy użytkownik', new_user_path, class: "btn btn-primary" %>
+	<%= link_to t('new user'), new_user_path, class: "btn btn-primary" %>
 </div>

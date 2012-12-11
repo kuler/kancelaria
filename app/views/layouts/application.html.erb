@@ -14,7 +14,7 @@
 					<a class="brand" href="#">Kancelaria OnLine</a>
 					<div class="nav-collapse collapse">
 						<p class="navbar-text pull-right">
-							Logged in as <a hr	ef="#" class="navbar-link">Username</a>
+							Logged in as <a hr	ef="#" class="navbar-link"><%=current_user.name%></a>
 						</p>
 					</div><!--/.nav-collapse -->
 				</div>
@@ -35,7 +35,7 @@
 								<%= link_to 'Raporty', nil %>
 							</li>
 							<li data-menu-item="cases">
-								<%= link_to 'Sprawy', nil %>
+								<%= link_to 'Sprawy', cases_path %>
 							</li>
 							<li data-menu-item="tasks">
 								<%= link_to 'Zadania', nil %>

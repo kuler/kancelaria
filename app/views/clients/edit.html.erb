@@ -1,4 +1,4 @@
 <fieldset>
 <legend><%=t('editing')%>: <%=@client.shortname%></legend>
-<%= render 'form' %>
+<%= render 'form', :locals=>{:submit_label=>t('save')}%>
 </fieldset>

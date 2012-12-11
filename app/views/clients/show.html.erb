@@ -25,7 +25,14 @@
     <tr>
       <td><%=t('simple_form.labels.client.address')%></td>
       <td><%= @client.address %></td>
-    </tr>    
+    </tr>  
+    <tr>
+      <td><%=t('simple_form.labels.client.user')%></td>
+      <td>
+        <%= @client.user.firstname %> <%= @client.user.lastname %><br/>
+        <%= @client.created_at %>
+      </td>      
+    </tr>
   </tbody>
 </table>
 <div class="form-actions">  

@@ -9,7 +9,7 @@
   <%= f.input :admin, wrapper: 'bootstrap' %>
  
   <div class="form-actions">
-  	<%= link_to 'Back', users_path, class: "btn" %>
-    <%= f.submit nil, class: "btn btn-primary" %>
+  	<%= link_to t('back'), users_path, class: "btn" %>
+    <%= f.submit submit_label, class: "btn btn-primary" %>
   </div>
 <% end %>
