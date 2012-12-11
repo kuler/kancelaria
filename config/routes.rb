@@ -17,6 +17,7 @@ Kancelaria::Application.routes.draw do
   get "session/logout"
   
   match 'calendar' => 'calendar#index'
+  match 'search/results' => 'search#results'
 
   resources :clients
   resources :users

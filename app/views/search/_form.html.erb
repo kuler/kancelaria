@@ -1,0 +1,5 @@
+﻿<div class='search-box pull-right'>
+    <%= form_tag "/search/results" do %>
+        <%= text_field_tag :query, nil, :placeholder=>t("search.querybox") %>
+    <% end %>
+</div>

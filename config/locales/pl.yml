@@ -45,6 +45,9 @@ pl:
   "false": "Nie"
   created_at: "Data utworzenia"
   updated_at: "Ostatnia modyfikacja"
+  search_results_for: "Wyniki wyszukiwania dla"
+  search_not_found: "Nic nie znaleziono, spróbuj użyć"
+  read more: "więcej..."
 
   #clients
   client: "Klient"
@@ -62,5 +65,9 @@ pl:
   user data: "Dane użytkownika"
   
   cases:
+    singular: "Sprawa"
     plural: "Sprawy"
     new: "Nowa sprawa"
+    
+  search:
+    querybox: "Wpisz aby wyszukać..."

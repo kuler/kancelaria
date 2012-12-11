@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 	<head>
-		<title>Kancelaria | <%= yield(:title) %></title>
+		<title>Kancelaria<%= @page_title ? " | "+@page_title : ""  %></title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
@@ -13,9 +13,14 @@
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
 					<a class="brand" href="#">Kancelaria OnLine</a>
 					<div class="nav-collapse collapse">
+						
+						<%= render :partial=>"/search/form" %>
+						
 						<p class="navbar-text pull-right">
 							Logged in as <a hr	ef="#" class="navbar-link"><%=current_user.name%></a>
+							
 						</p>
+						
 					</div><!--/.nav-collapse -->
 				</div>
 			</div>
@@ -32,7 +37,7 @@
 								<a href="/calendar">Kalendarz</a>
 							</li>
 							<li data-menu-item="reports">
-								<%= link_to 'Raporty', nil %>
+								<a href="/reports">Raporty</a>
 							</li>
 							<li data-menu-item="cases">
 								<%= link_to 'Sprawy', cases_path %>
