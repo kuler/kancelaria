@@ -10,27 +10,45 @@ pl:
         nip: "NIP"
         regon: "REGON"
         address: "Adres"
+        user: "Utworzył"        
       user:
-        username: "Nazwa użytkownika"
+        name: "Nazwa użytkownika"
         password: "Hasło"
-        password_confirm: "Powtórz ponownie hasło"
+        password_confirmation: "Powtórz ponownie hasło"
         firstname: "Imię"
         lastname: "Nazwisko"
         active: "Aktywny"
         admin: "Admin"
+      case:
+        client: "Klient"
+        name: "Nazwa"
+        description: "Opis"
+        user: "Utworzył"
+             
+  errors:
+    messages:
+      blank: "Proszę wypełnić wymagane pole"
 
+  
   #defaults
   details: "Szczegóły"
   edit: "Edytuj"
-  back: "Wróć"
   editing: "Edytujesz"
+  create: "Utwórz"
   remove: "Usuń"
+  back: "Wróć"
+  save: "Zapisz"
   are you sure: "Czy jesteś pewny?"
   changes_saved: "Zmiany zapisano"
   created_at: "Utworzono"
   "true": "Tak"
   "false": "Nie"
-  
+  created_at: "Data utworzenia"
+  updated_at: "Ostatnia modyfikacja"
+  search_results_for: "Wyniki wyszukiwania dla"
+  search_not_found: "Nic nie znaleziono, spróbuj użyć"
+  read more: "więcej..."
+
   #clients
   client: "Klient"
   clients: "Klienci"
@@ -42,8 +60,16 @@ pl:
   user: "Użytkownik"
   users: "Użytkownicy"
   new user: "Nowy użytkownik"
+  edit user: "Edycja użytkownika"
   user was successfully created: "Utworzono nowego użytkownika"
   user data: "Dane użytkownika"
+
+  cases:
+    singular: "Sprawa"
+    plural: "Sprawy"
+    new: "Nowa sprawa"
+  search:
+    querybox: "Wpisz aby wyszukać..."
 
   #date
   date:
@@ -51,3 +77,4 @@ pl:
       - :day
       - :month
       - :year
+  

@@ -1,0 +1,11 @@
+<%= simple_form_for @case do |f| %>
+
+<%= f.association :client, :label_method => :shortname, :required=>true %>
+<%= f.input :name, wrapper: 'bootstrap' %>
+<%= f.input :description, wrapper: 'bootstrap', :input_html => { :rows => 10 }%>
+
+<div class="form-actions">
+	<%= link_to t('back'), cases_path, class: "btn" %>
+	<%= f.submit nil, class: "btn btn-primary" %>
+</div>
+<% end %>

@@ -18,9 +18,11 @@ Kancelaria::Application.routes.draw do
   get "session/logout"
   
   match 'calendar' => 'calendar#index'
+  match 'search/results' => 'search#results'
 
   resources :clients
   resources :users
+  resources :cases
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

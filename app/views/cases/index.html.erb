@@ -1,0 +1,33 @@
+<h3><%=t('cases.plural')%></h3>
+
+<table class="table table-striped">
+  <tr>
+    <th><%=t('simple_form.labels.case.client')%></th>
+    <th><%=t('simple_form.labels.case.name')%></th>
+    <th><%=t('simple_form.labels.case.description')%></th>
+    <th><%=t('simple_form.labels.case.user')%></th>
+    <th><%=t('created_at')%></th>    
+    <th></th>
+  </tr>
+
+<% @cases.each do |_case| %>
+  <tr>
+    <td><%= _case.client.shortname %></td>
+    <td><%= _case.name %></td>
+    <td><%= _case.description %></td>
+    <td><%= _case.user.firstname %> <%= _case.user.lastname %></td>
+    <td><%= _case.created_at %></td>
+    <td>
+    <%= link_to t(:edit), edit_case_path(_case), class: "btn btn-mini btn-primary" %>
+    <%= link_to t(:remove), _case, class: "btn btn-mini btn-danger", confirm: t('are you sure'), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="form-actions">
+	<%= link_to t('cases.new'), new_case_path, :class => 'btn btn-primary' %>
+</div>
+
+    
+
+

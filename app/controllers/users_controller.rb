@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: t('user was successfully created') }
+        format.html { redirect_to users_url, notice: t('user was successfully created') }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: t('changes saved') }
+        format.html { redirect_to users_url, notice: t('changes saved') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    @user.update_attribute(:active, false)
 
     respond_to do |format|
       format.html { redirect_to users_url }

@@ -1,4 +1,9 @@
+require 'bcrypt'
+
 class User < ActiveRecord::Base
+
+  include BCrypt
+
   has_many :clients
   
 	attr_accessible :password_confirmation, :name, :password, :firstname, :lastname, :active, :admin
