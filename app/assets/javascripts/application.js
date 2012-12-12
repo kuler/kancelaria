@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree ./inputmask
 //= require ./fullcalendar/fullcalendar
 //= require chosen.jquery
 //= require bootstrap-colorpicker
