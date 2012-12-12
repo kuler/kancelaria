@@ -1,15 +1,21 @@
-<%= simple_form_for(@task) do |f| %>
+﻿<%= simple_form_for(@task) do |f| %>
 <%= f.error_notification %>
 
 <div class="form-inputs">
+	<%= f.input :type, wrapper: :bootstrap do %>
+	<%= f.select :type, TaskType.all.map { |t| [t.name, t.id ] }, :selected => @task.task_type_id, :input_html => { :class => "chsn-select", "data-placeholder" => "Wybierz typ zadania..." } %>
+	<% end %>
+	
 	<%= f.input :name, wrapper: :bootstrap %>
 	<%= f.input :description, wrapper: :bootstrap, :input_html => { :cols => 50, :rows => 5 } %>
 	
 	<%= f.input :planned_at, as: :datetime2, date_input_html: { style: "width: 80px "}, time_input_html: { style: "width: 50px" } %>
+	<%= f.input :completed_at, as: :datetime2, date_input_html: { style: "width: 80px "}, time_input_html: { style: "width: 50px" } %>
 	
-	<%= f.input :type, wrapper: :bootstrap do %>
-	<%= f.select :type, TaskType.all.map { |t| [t.name, t.id ] }, :selected => @task.task_type_id, :input_html => { :class => "chsn-select", "data-placeholder" => "Wybierz typ zadania..." } %>
-	<% end %>
+	<%= f.association :assignee, :label_method => :name, :input_html => { :class => "chsn-select", "data-placeholder" => "Przydziel pracownika..." }%>
+	<%= f.association :case, :label_method => :name, :input_html => { :class => "chsn-select", "data-placeholder" => "Przydziel sprawę..." }%>
+	
+
 </div>
 
 <div class="form-actions">

@@ -36,17 +36,14 @@
 							<li data-menu-item="calendar">
 								<a href="/calendar">Kalendarz</a>
 							</li>
+							<li data-menu-item="tasks">
+								<%= link_to 'Czynności i zadania', tasks_path %>
+							</li>
 							<li data-menu-item="reports">
 								<a href="/reports">Raporty</a>
 							</li>
 							<li data-menu-item="cases">
 								<%= link_to 'Sprawy', cases_path %>
-							</li>
-							<li data-menu-item="task_types">
-								<%= link_to 'Typy zadań', task_types_path %>
-							</li>
-							<li data-menu-item="tasks">
-								<%= link_to 'Zadania', tasks_path %>
 							</li>
 							<li data-menu-item="clients">
 								<%= link_to 'Klienci', clients_path %>
@@ -54,6 +51,9 @@
 							<li data-menu-item ="users">
 								<%= link_to 'Użytkownicy', users_path %>
 							</li>
+							<li data-menu-item="task_types">
+								<%= link_to 'Typy zadań', task_types_path %>
+							</li>							
 						</ul>
 						<%= yield(:nav) %>
 					</nav>

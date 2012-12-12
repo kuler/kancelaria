@@ -1,25 +1,50 @@
-<h1>Listing tasks</h1>
+﻿<h3>Zadania i czynności</h3>
 
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Nazwa</th>
-			<th>Typ</th>
+			<th>Zadanie/czynność</th>
+			<th>Pracownik</th>
+			<th>Klient</th>
+			<th>Sprawa</th>
+			<th>Utworzono</th>
+			<th>Termin</th>
 			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @tasks.each do |task| %>
 		<tr>
-			<td><%= task.name %></td>
-			<td><%= task.type.name %></td>
-			<td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-mini btn-primary" %>
-			<%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini btn-danger" %></td>
+			<td>
+				<span class='label' style='background-color: <%=task.type.color%>'><%= task.type.name %></span>
+				<%= ": "+task.name if not task.name.empty? %>
+				<%=raw "<span class='label'>zadanie</span>" if task.todo %> 
+			</td>
+			<td><%= task.assignee ?
+						task.assignee.firstname+' '+task.assignee.lastname  
+						: 
+						'brak'%></td>
+			<td><%= task.case.client.shortname if task.case %></td>
+			<td><%= task.case.name if task.case %></td>
+			<td><%= task.created_at %></td>
+			<td>
+				<% if task.planned_at %>
+					<p><%=task.planned_at%> <span class='label'>Planowany</span></p>
+				<% end %>
+				<% if task.completed_at %>
+					<p><%=task.completed_at%> <span class='label'>Wykonany</span></p>
+				<% end %>
+			</td>
+			<td>
+				<%= link_to t('details'), edit_task_path(task), class: "btn btn-mini" %>
+				<%= link_to t('edit'), edit_task_path(task), class: "btn btn-mini btn-primary" %>
+				<%= link_to t('remove'), task, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini btn-danger" %>
+			</td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
 
 <div class="form-actions">
-<%= link_to 'Nowe zadanie', new_task_path, class: "btn btn-primary" %>
+<%= link_to 'Nowe zadanie lub czynność', new_task_path, class: "btn btn-primary" %>
 </div>
