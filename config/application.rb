@@ -32,6 +32,8 @@ module Kancelaria
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :pl
+    #Adding the below makes it work as expected at heroku
+    config.i18n.locale = :pl 
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
