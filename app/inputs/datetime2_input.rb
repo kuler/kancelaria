@@ -15,7 +15,7 @@ class Datetime2Input < SimpleForm::Inputs::Base
     out += template.content_tag :div, class: "input-append" do                          
       o = @builder.input "#{attribute_name}_time", wrapper: :simple, input_html: time_input_html
       o += template.content_tag :span, class: "add-on" do 
-        template.content_tag :i, nil, class: "icon-calendar"
+        template.content_tag :i, nil, class: "icon-time"
       end
     end   
        
