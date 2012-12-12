@@ -17,8 +17,9 @@
 						<%= render :partial=>"/search/form" %>
 						
 						<p class="navbar-text pull-right">
+							<% if current_user %>
 							Logged in as <a hr	ef="#" class="navbar-link"><%=current_user.name%></a>
-							
+							<% end %>
 						</p>
 						
 					</div><!--/.nav-collapse -->
