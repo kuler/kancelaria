@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  default_scope :conditions => { :is_activity => false }
+
   attr_accessible :case_id, :assignee_user_id, :completed_at_date, :completed_at_time, :planned_at_date, :planned_at_time, :type, :task_type_id, :name, :description, :planned_at
 
   attr_accessor :planned_at_date, :planned_at_time
@@ -6,22 +8,12 @@ class Task < ActiveRecord::Base
 	belongs_to :case
 	belongs_to :author, :class_name => 'User', :foreign_key => 'author_user_id'
 	belongs_to :assignee, :class_name => 'User', :foreign_key => 'assignee_user_id'	
-	
-  def type=(task_type)
-    self.task_type_id = task_type.to_i
-  end
+  belongs_to :type, :class_name => 'TaskType', :foreign_key => 'task_type_id'	
   
   def todo
     self.author!=self.assignee
   end
-  
-  def type
-    if task_type_id.present?
-      TaskType.find(task_type_id)
-    else
-      false
-    end
-  end
+
   
   def planned_at_date
     return nil if not self.planned_at

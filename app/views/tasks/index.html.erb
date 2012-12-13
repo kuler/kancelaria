@@ -1,4 +1,4 @@
-﻿<h3>Zadania i czynności</h3>
+﻿<h3>Zadania</h3>
 
 <table class="table table-striped">
 	<thead>
@@ -17,8 +17,7 @@
 		<tr>
 			<td>
 				<span class='label' style='background-color: <%=task.type.color%>'><%= task.type.name %></span>
-				<%= ": "+task.name if not task.name.empty? %>
-				<%=raw "<span class='label'>zadanie</span>" if task.todo %> 
+				<%= task.name if not task.name.empty? %>				 
 			</td>
 			<td><%= task.assignee ?
 						task.assignee.firstname+' '+task.assignee.lastname  

@@ -1,7 +1,8 @@
 Kancelaria::Application.routes.draw do
   resources :task_types
   resources :tasks
-
+  resources :activities
+  
   get "admin/index"
 
   get "session/new"

@@ -36,5 +36,7 @@ $(function() {
 			showMeridian: false,
 			showInputs: false
 		})
+		
+		$('.chsn-select').chosen()
 	})
 })

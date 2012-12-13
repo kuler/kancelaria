@@ -1,0 +1,50 @@
+﻿<h3>Czynności</h3>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Zadanie/czynność</th>
+			<th>Pracownik</th>
+			<th>Klient</th>
+			<th>Sprawa</th>
+			<th>Utworzono</th>
+			<th>Termin</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @activities.each do |activity| %>
+		<tr>
+			<td>
+				<span class='label' style='background-color: <%=activity.type.color%>'><%= activity.type.name %></span>
+				<%= activity.name if not activity.name.empty? %>
+				 
+			</td>
+			<td><%= activity.assignee ?
+						activity.assignee.firstname+' '+activity.assignee.lastname  
+						: 
+						'brak'%></td>
+			<td><%= activity.case.client.shortname if activity.case %></td>
+			<td><%= activity.case.name if activity.case %></td>
+			<td><%= activity.created_at %></td>
+			<td>
+				<% if activity.planned_at %>
+					<p><%=activity.planned_at%> <span class='label'>Planowany</span></p>
+				<% end %>
+				<% if activity.completed_at %>
+					<p><%=activity.completed_at%> <span class='label'>Wykonany</span></p>
+				<% end %>
+			</td>
+			<td>
+				<%= link_to t('details'), edit_activity_path(activity), class: "btn btn-mini" %>
+				<%= link_to t('edit'), edit_activity_path(activity), class: "btn btn-mini btn-primary" %>
+				<%= link_to t('remove'), activity, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini btn-danger" %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<div class="form-actions">
+<%= link_to 'Nowe zadanie lub czynność', new_activity_path, class: "btn btn-primary" %>
+</div>

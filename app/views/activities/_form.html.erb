@@ -1,9 +1,9 @@
-﻿<%= simple_form_for(@task) do |f| %>
+﻿<%= simple_form_for(@activity) do |f| %>
 <%= f.error_notification %>
 
 <div class="form-inputs">
 		
-	<%= f.association :type, :input_html => { :class => "chsn-select", "data-placeholder" => "Wybierz typ zadania..." }, wrapper: :bootstrap %>	
+	<%= f.association :type, :input_html => { :class => "chsn-select", "data-placeholder" => "Wybierz typ czynności..." }, wrapper: :bootstrap %>	
 	
 	<%= f.input :name, wrapper: :bootstrap %>
 	<%= f.input :description, wrapper: :bootstrap, :input_html => { :cols => 50, :rows => 5 } %>
@@ -18,7 +18,7 @@
 </div>
 
 <div class="form-actions">
-	<%= link_to 'Back', tasks_path, class: "btn" %>
+	<%= link_to 'Back', activities_path, class: "btn" %>
 	<%= f.button :submit, class: "btn btn-primary" %>
 </div>
 <% end %>
