@@ -6,6 +6,7 @@
 	<%= f.association :type, :input_html => { :class => "chsn-select", "data-placeholder" => "Wybierz typ zadania..." }, wrapper: :bootstrap %>	
 	
 	<%= f.input :name, wrapper: :bootstrap %>
+	<%= f.input :files_signature, wrapper: :bootstrap %>
 	<%= f.input :description, wrapper: :bootstrap, :input_html => { :cols => 50, :rows => 5 } %>
 	
 	<%= f.input :planned_at, as: :datetime2, date_input_html: { style: "width: 80px "}, time_input_html: { style: "width: 50px" } %>

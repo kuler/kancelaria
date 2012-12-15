@@ -4,6 +4,7 @@
   <tr>
     <th><%=t('simple_form.labels.case.client')%></th>
     <th><%=t('simple_form.labels.case.name')%></th>
+    <th><%=t('simple_form.labels.case.files_signature')%></th>
     <th><%=t('simple_form.labels.case.description')%></th>
     <th><%=t('simple_form.labels.case.user')%></th>
     <th><%=t('created_at')%></th>    
@@ -14,6 +15,7 @@
   <tr>
     <td><%= _case.client.shortname %></td>
     <td><%= _case.name %></td>
+    <td><%= _case.files_signature %></td>
     <td><%= _case.description %></td>
     <td><%= _case.user.firstname %> <%= _case.user.lastname %></td>
     <td><%= _case.created_at %></td>

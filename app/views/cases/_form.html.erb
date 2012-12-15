@@ -2,6 +2,7 @@
 
 <%= f.association :client, :label_method => :shortname, :required=>true %>
 <%= f.input :name, wrapper: 'bootstrap' %>
+<%= f.input :files_signature, wrapper: 'bootstrap' %>
 <%= f.input :description, wrapper: 'bootstrap', :input_html => { :rows => 10 }%>
 
 <div class="form-actions">

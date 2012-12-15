@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215134721) do
+ActiveRecord::Schema.define(:version => 20121215180347) do
 
   create_table "cases", :force => true do |t|
-    t.string   "name",                          :null => false
-    t.boolean  "active",      :default => true
+    t.string   "name",                              :null => false
+    t.boolean  "active",          :default => true
     t.text     "description"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.integer  "user_id",                       :null => false
-    t.integer  "client_id",                     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "user_id",                           :null => false
+    t.integer  "client_id",                         :null => false
+    t.string   "files_signature"
   end
 
   create_table "clients", :force => true do |t|
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20121215134721) do
     t.integer  "author_user_id",   :null => false
     t.integer  "assignee_user_id"
     t.boolean  "is_activity"
+    t.string   "files_signature"
   end
 
   create_table "users", :force => true do |t|
