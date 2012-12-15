@@ -1,5 +1,14 @@
 <div id="calendar"></div>
-
+<% content_for :aside do %>
+	<hr/>
+	<h6>Opcje wyświetlania</h6>
+	<div id='calendar-filters'>
+		<div class="btn-group filter-type">
+		  <button enables='activities' type="button" class="btn btn-primary <%=@filters[:activities] ? "active" : ""%>">Czynności</button>
+		  <button enables='tasks' type="button" class="btn btn-primary <%=@filters[:tasks] ? "active" : ""%>">Zadania</button>
+		</div>
+	</div>
+<% end %>
 <% content_for :scripts do %>
 $('#calendar').fullCalendar({	
 	buttonText: {
@@ -71,7 +80,7 @@ $('#calendar').fullCalendar({
 		right: 'month,agendaWeek,agendaDay'
 	},
 	editable: true,
-	events: '<%= tasks_path format: :json %>'
+	events: '<%= calendar_path format: :json %>'
 
 })
 <% end %>
