@@ -4,6 +4,5 @@ class Client < ActiveRecord::Base
 	
 	validates :shortname, presence: true, uniqueness: true
 	validates :fullname, presence: true
-	validates :nip, presence: true, mask: "999-999-99-99"
-	validates :contact, presence: true
+	validates :email, :presence=>false, :email=>true
 end

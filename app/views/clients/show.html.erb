@@ -15,6 +15,14 @@
       <td><%= @client.contact %></td>
     </tr>
     <tr>
+      <td><%=t('simple_form.labels.client.email')%></td>
+      <td><%= @client.email %></td>
+    </tr>
+    <tr>
+      <td><%=t('simple_form.labels.client.website')%></td>
+      <td><%= @client.website %></td>
+    </tr>
+    <tr>
       <td><%=t('simple_form.labels.client.nip')%></td>
       <td><%= @client.nip %></td>
     </tr>
@@ -23,8 +31,16 @@
       <td><%= @client.regon %></td>
     </tr>
     <tr>
-      <td><%=t('simple_form.labels.client.address')%></td>
-      <td><%= @client.address %></td>
+      <td><%=t('simple_form.labels.client.street')%></td>
+      <td><%= @client.street %></td>
+    </tr>  
+    <tr>
+      <td><%=t('simple_form.labels.client.zipcode')%></td>
+      <td><%= @client.zipcode %></td>
+    </tr>  
+    <tr>
+      <td><%=t('simple_form.labels.client.city')%></td>
+      <td><%= @client.city %></td>
     </tr>  
     <tr>
       <td><%=t('simple_form.labels.client.user')%></td>
