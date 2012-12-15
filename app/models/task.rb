@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   default_scope :conditions => { :is_activity => false }
 
-  attr_accessible :case_id, :assignee_user_id, :completed_at_date, :completed_at_time, :planned_at_date, :planned_at_time, :type, :task_type_id, :name, :description, :planned_at
+  attr_accessible :case_id, :assignee_user_id, :completed_at_date, :completed_at_time, :planned_at_date, :planned_at_time, :type, :task_type_id, :name, :description, :planned_at, :files_signature
 
   attr_accessor :planned_at_date, :planned_at_time
 
