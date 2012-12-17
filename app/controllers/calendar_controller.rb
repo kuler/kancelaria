@@ -8,7 +8,6 @@ class CalendarController < ApplicationController
   end
 
   def filter
-    
     @filters = session[:calendar_filters] ? session[:calendar_filters] : default_filters
   
     if params[:toggle]
@@ -38,8 +37,8 @@ class CalendarController < ApplicationController
       events+= @tasks.map { |t|
                 { 
                   'title' => t.type.name + ' ' + t.name + (t.assignee ? ' '+t.assignee.name : ''),
-                  'start' => t.planned_at,
-                  'end' => (t.planned_at + 1.hour),
+                  'start' => t.planned_at[:from],
+                  'end' => t.planned_at[:to],
                   'backgroundColor' => t.type.color,
                   'url' => edit_task_path(t),
                   'allDay' => false

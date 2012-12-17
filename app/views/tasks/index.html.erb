@@ -25,14 +25,9 @@
 						'brak'%></td>
 			<td><%= task.case.client.shortname if task.case %></td>
 			<td><%= task.case.name if task.case %></td>
+			
 			<td><%= task.created_at %></td>
 			<td>
-				<% if task.planned_at %>
-					<p><%=task.planned_at%> <span class='label'>Planowany</span></p>
-				<% end %>
-				<% if task.completed_at %>
-					<p><%=task.completed_at%> <span class='label'>Wykonany</span></p>
-				<% end %>
 			</td>
 			<td>
 				<%= link_to t('details'), edit_task_path(task), class: "btn btn-mini" %>
