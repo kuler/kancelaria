@@ -14,12 +14,24 @@ module Modules
       # Range methos
       
       define_method name.to_sym do
-        {
+        r = {
           from: send(start_at),
           _from_symbol: start_at,
           to: send(finish_at),
           _to_symbol: finish_at
         }
+        
+        class <<r
+          def from
+            self[:from]
+          end
+          
+          def to
+            self[:to]
+          end
+        end
+        
+        return r
       end
       
       # Start methods      

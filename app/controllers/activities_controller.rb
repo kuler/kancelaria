@@ -2,20 +2,20 @@ class ActivitiesController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @activities = Activity.order("planned_at DESC, completed_at DESC")
+    @activities = Activity.order("planned_to_start_at DESC, started_at DESC")
 
 
     respond_to do |format|
       format.html # index.html.erb
       format.json {         
         @activities.reject! do |t|
-          t.planned_at==nil
+          t.planned_at.from ==nil
         end
         render json: @activities.map { |t|
           { 
             'title' => t.type.name + ' ' + t.name + (t.assignee ? ' '+t.assignee.name : ''),
-            'start' => t.planned_at,
-            'end' => (t.planned_at + 1.hour),
+            'start' => t.planned_at.from,
+            'end' => t.planned_at.to,
             'backgroundColor' => t.type.color,
             'url' => edit_task_path(t),
             'allDay' => false

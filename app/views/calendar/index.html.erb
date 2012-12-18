@@ -3,9 +3,9 @@
 	<hr/>
 	<h6>Opcje wyświetlania</h6>
 	<div id='calendar-filters'>
-		<div class="btn-group filter-type">
-		  <button enables='activities' type="button" class="btn btn-primary <%=@filters[:activities] ? "active" : ""%>">Czynności</button>
-		  <button enables='tasks' type="button" class="btn btn-primary <%=@filters[:tasks] ? "active" : ""%>">Zadania</button>
+		<div class="btn-group calendar-filters" data-toggle="buttons-checkbox">
+		  <button data-event-source='<%= activities_path format: :json %>' type="button" class="btn btn-primary">Czynności</button>
+		  <button data-event-source='<%= tasks_path format: :json %>' type="button" class="btn btn-primary">Zadania</button>
 		</div>
 	</div>
 <% end %>
@@ -78,9 +78,15 @@ $('#calendar').fullCalendar({
 		left: 'prev,next today',
 		center: 'title',
 		right: 'month,agendaWeek,agendaDay'
-	},
-	editable: true,
-	events: '<%= calendar_path format: :json %>'
-
+	},	
+	editable: true
 })
+
+$('.calendar-filters button').bind('click', function() {
+	if(!$(this).hasClass('active')) {
+		$('#calendar').fullCalendar('addEventSource', $(this).attr('data-event-source'))
+	} else {
+		$('#calendar').fullCalendar('removeEventSource', $(this).attr('data-event-source'))
+	}	
+}).trigger('click')
 <% end %>

@@ -9,13 +9,13 @@ class TasksController < ApplicationController
       format.html # index.html.erb
       format.json {         
         @tasks.reject! do |t|
-          t.planned_to_start_at==nil
+          t.planned_at.from ==nil
         end
         render json: @tasks.map { |t|
           { 
             'title' => t.type.name + ' ' + t.name + (t.assignee ? ' '+t.assignee.name : ''),
-            'start' => t.planned_at[:from],
-            'end' => t.planned_at[:to],
+            'start' => t.planned_at.from,
+            'end' => t.planned_at.to,
             'backgroundColor' => t.type.color,
             'url' => edit_task_path(t),
             'allDay' => false
