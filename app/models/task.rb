@@ -16,7 +16,7 @@ class Task < ActiveRecord::Base
   # * planned_to_finish_at_time=
   # * planned_to => { from: <Start DateTime>, to: <Finish DateTime> }
   has_datetime_range :planned_at, from: :planned_to_start_at, to: :planned_to_finish_at
-  has_datetime_range :task_range, from: :started_at, to: :finished_at
+  has_datetime_range :completed_at, from: :started_at, to: :finished_at
 
 	belongs_to :case
 	belongs_to :author, :class_name => 'User', :foreign_key => 'author_user_id'

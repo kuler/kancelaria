@@ -25,4 +25,7 @@
 
 <% content_for :scripts do %>
 $('#task_type').chosen()
+
+var d = new Date();
+$('#task_planned_to_start_at_date').datepicker('setStartDate', d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear())
 <% end %>
