@@ -57,6 +57,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(params[:activity])
     @activity.author = current_user
+    @activity.assignee = current_user
     
     respond_to do |format|
       if @activity.save

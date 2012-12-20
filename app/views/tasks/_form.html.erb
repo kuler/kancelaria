@@ -3,16 +3,16 @@
 
 <div class="form-inputs">
 		
+	<%= f.association :case, :label_method => :name, :input_html => { :class => "chsn-select", "data-placeholder" => "Przydziel sprawę..." }%>
+	<%= f.input :files_signature, wrapper: :bootstrap %>
 	<%= f.association :type, :input_html => { :class => "chsn-select", "data-placeholder" => "Wybierz typ zadania..." }, wrapper: :bootstrap %>	
 	
 	<%= f.input :name, wrapper: :bootstrap %>
-	<%= f.input :files_signature, wrapper: :bootstrap %>
 	<%= f.input :description, wrapper: :bootstrap, :input_html => { :cols => 50, :rows => 5 } %>
 	
 	<%= f.input :planned_at, as: :datetime_range, date_input_html: { style: "width: 80px "}, time_input_html: { style: "width: 50px" } %>
 	
 	<%= f.association :assignee, :label_method => :name, :input_html => { :class => "chsn-select", "data-placeholder" => "Przydziel pracownika..." }%>
-	<%= f.association :case, :label_method => :name, :input_html => { :class => "chsn-select", "data-placeholder" => "Przydziel sprawę..." }%>
 	
 
 </div>
