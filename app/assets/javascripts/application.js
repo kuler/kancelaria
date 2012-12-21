@@ -40,3 +40,22 @@ $(function() {
 		$('.chsn-select').chosen()
 	})
 })
+
+Math.zeroFill = function(number, width){
+  width -= number.toString().length;
+  if ( width > 0 )
+  {
+	return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
+  }
+  return number + "";
+}
+
+TimeHelper = {
+	time2int: function(t){
+		var tmp = t.split(":")
+		return tmp[0] * 60 + tmp[1] * 1
+	},
+	int2time: function(i){
+		return Math.zeroFill(Math.floor(i/60),2) + ":" + Math.zeroFill(i%60,2)
+	}
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215180347) do
+ActiveRecord::Schema.define(:version => 20121221073808) do
 
   create_table "cases", :force => true do |t|
     t.string   "name",                              :null => false
@@ -50,33 +50,34 @@ ActiveRecord::Schema.define(:version => 20121215180347) do
   end
 
   create_table "tasks", :force => true do |t|
-    t.string   "name",             :null => false
+    t.string   "name",                 :null => false
     t.text     "description"
     t.integer  "priority"
     t.datetime "assigned_at"
-    t.datetime "completed_at"
-    t.integer  "hours_total"
     t.integer  "hours_invoice"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.datetime "planned_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.datetime "planned_to_start_at"
     t.integer  "task_type_id"
     t.integer  "case_id"
-    t.integer  "author_user_id",   :null => false
+    t.integer  "author_user_id",       :null => false
     t.integer  "assignee_user_id"
     t.boolean  "is_activity"
     t.string   "files_signature"
+    t.datetime "started_at"
+    t.datetime "planned_to_finish_at"
+    t.datetime "finished_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name",                         :null => false
-    t.string   "password",                     :null => false
-    t.string   "firstname",                    :null => false
-    t.string   "lastname",                     :null => false
-    t.boolean  "active",     :default => true
-    t.boolean  "admin"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.string   "name",                          :null => false
+    t.string   "password",                      :null => false
+    t.string   "firstname",                     :null => false
+    t.string   "lastname",                      :null => false
+    t.boolean  "active",     :default => true,  :null => false
+    t.boolean  "admin",      :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "salt"
   end
 

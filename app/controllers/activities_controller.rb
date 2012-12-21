@@ -77,7 +77,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.update_attributes(params[:activity])
-        format.html { redirect_to tasks_path, notice: 'Activity was successfully updated.' }
+        format.html { redirect_to activities_path, notice: 'Activity was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

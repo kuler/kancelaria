@@ -11,7 +11,7 @@
 	<%= f.input :description, wrapper: :bootstrap, :input_html => { :cols => 50, :rows => 5 } %>
 	
 	<%= f.input :completed_at, as: :datetime_range, date_input_html: { style: "width: 80px "}, time_input_html: { style: "width: 50px" } %>
-		
+	<%= f.input :hours_invoice, :as => :string, wrapper: :bootstrap %>
 	
 
 </div>
