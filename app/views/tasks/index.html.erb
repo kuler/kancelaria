@@ -3,11 +3,10 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Zadanie/czynność</th>
+			<th>Zadanie/czynność/opis</th>
 			<th>Pracownik</th>
-			<th>Klient</th>
-			<th>Sprawa</th>
-			<th>Utworzono</th>
+			<th>Klient/Sprawa</th>
+			<th>Utworzył</th>
 			<th>Termin</th>
 			<th></th>
 		</tr>
@@ -16,21 +15,27 @@
 		<% @tasks.each do |task| %>
 		<tr>
 			<td>
-				<span class='label' style='background-color: <%=task.type.color%>'><%= task.type.name %></span>
-				<%= task.name if not task.name.empty? %>				 
+				<%= task.name if not task.name.empty? %>
+                <span class='label' style='background-color: <%=task.type.color%>'><%= task.type.name %></span>
+                <br/>
+                <small><%= task.description if not task.description.empty? %></small>
 			</td>
 			<td><%= task.assignee ?
 						task.assignee.firstname+' '+task.assignee.lastname  
-						: 
-						'brak'%></td>
-			<td><%= task.case.client.shortname if task.case %></td>
-			<td><%= task.case.name if task.case %></td>
+						:
+                        link_to(t('assign'), '/tasks/'+task.id.to_s+'/selfassign', class: "btn btn-mini")
+            %>
+            <%= link_to(t('resign'), '/tasks/'+task.id.to_s+'/selfresign', class: 'btn btn-mini') if task.assignee == current_user
+            %>
+            </td>
+			<td><%= task.case.client.shortname if task.case %><br/>
+			<%= task.case.name if task.case %></td>
 			
-			<td><%= task.created_at %></td>
-			<td>
+			<td><%= task.author.firstname+' '+task.author.lastname %><br/><small><%= task.created_at %></small></td>
+		    <td>
+                <%= task.planned_to_start_at  if task.planned_to_start_at %>
 			</td>
 			<td>
-				<%= link_to t('details'), edit_task_path(task), class: "btn btn-mini" %>
 				<%= link_to t('edit'), edit_task_path(task), class: "btn btn-mini btn-primary" %>
 				<%= link_to t('remove'), task, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini btn-danger" %>
 			</td>

@@ -96,4 +96,25 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def selfassign
+    @task = Task.find(params[:id])
+    @task.assignee = current_user
+    @task.save
+
+    respond_to do |format|
+        format.html { redirect_to tasks_path, notice: t('ok') }
+        format.json { render json: @task, status: :created, location: @task }
+    end
+  end
+  def selfresign
+    @task = Task.find(params[:id])
+    @task.assignee = nil
+    @task.save
+
+    respond_to do |format|
+      format.html { redirect_to tasks_path, notice: t('ok') }
+      format.json { render json: @task, status: :created, location: @task }
+    end
+  end
 end

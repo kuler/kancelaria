@@ -1,6 +1,10 @@
 Kancelaria::Application.routes.draw do
   resources :task_types
   resources :tasks
+
+  match 'tasks/:id/selfassign' => 'tasks#selfassign'
+  match 'tasks/:id/selfresign' => 'tasks#selfresign'
+
   resources :activities
   
   get "admin/index"
@@ -21,6 +25,7 @@ Kancelaria::Application.routes.draw do
   match 'calendar' => 'calendar#index'
   match 'calendar/filter' => 'calendar#filter'
   match 'search/results' => 'search#results'
+
 
   resources :clients
   resources :users
