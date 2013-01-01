@@ -1,9 +1,9 @@
 function ActivitiesHelper(){
-	$(document).ready($.proxy(this.init, this));	
+	$(document).ready($.proxy(this.init, this));
 }
 
 ActivitiesHelper.prototype.init = function(){
-	var hi = $("input#activity_hours_invoice"); 
+	var hi = $("input#activity_invoice_time");
 	if(hi.length){
 		this.hours_invoice = hi;
 		
@@ -36,18 +36,35 @@ ActivitiesHelper.prototype.completed_at_changed = function(e){
 	else
 		which = this.finished_at
 	
-	
-	if(!(this.started_at.val() && this.finished_at.val()))
+	var s = 0;
+    var f = 0;
+
+    if(!this.started_at.val() && !this.finished_at.val())
 		return;
-	
-	var s = TimeHelper.time2int(this.started_at.val())
-	var f = TimeHelper.time2int(this.finished_at.val())
+    else if(!this.started_at.val()){
+        f = TimeHelper.time2int(this.finished_at.val());
+        s = f;
+        this.started_at.val(TimeHelper.int2time(s));
+    }
+    else if(!this.finished_at.val()){
+        s = TimeHelper.time2int(this.started_at.val());
+        f = s;
+        this.finished_at.val(TimeHelper.int2time(f));
+    }
+    else{
+        s = TimeHelper.time2int(this.started_at.val())
+        f = TimeHelper.time2int(this.finished_at.val())
+    }
 		
 	if(f<s){
-		if(which == this.started_at)		
-			this.finished_at.val(TimeHelper.int2time(s));
-		else
-			this.started_at.val(TimeHelper.int2time(f));
+		if(which == this.started_at){
+            f = s
+			this.finished_at.val(TimeHelper.int2time(f));
+        }
+		else{
+            s = f
+			this.started_at.val(TimeHelper.int2time(s));
+        }
 	}
 	
 	if(!this.hours_invoice.hasClass("do-not-update"))

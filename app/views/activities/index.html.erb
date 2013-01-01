@@ -7,8 +7,7 @@
 			<th>Pracownik</th>
 			<th>Klient</th>
 			<th>Sprawa</th>
-			<th>Utworzono</th>
-			<th>Termin</th>
+			<th>Terminy</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -26,13 +25,13 @@
 						'brak'%></td>
 			<td><%= activity.case.client.shortname if activity.case %></td>
 			<td><%= activity.case.name if activity.case %></td>
-			<td><%= activity.created_at %></td>
 			<td>
-				<% if activity.planned_at %>
-					<p><%=activity.planned_at%> <span class='label'>Planowany</span></p>
-				<% end %>
-				<% if activity.completed_at %>
-					<p><%=activity.completed_at%> <span class='label'>Wykonany</span></p>
+				<% if activity.started_at %>
+					<%=activity.started_at%> <span class='label'>Wykonany</span>
+                <% else
+                    if activity.planned_to_start_at %>
+                    <%=activity.planned_to_start_at%> <span class='label'>Planowany</span>
+                    <% end %>
 				<% end %>
 			</td>
 			<td>

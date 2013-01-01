@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121221073808) do
+ActiveRecord::Schema.define(:version => 20130101170848) do
 
   create_table "cases", :force => true do |t|
     t.string   "name",                              :null => false
@@ -50,17 +50,17 @@ ActiveRecord::Schema.define(:version => 20121221073808) do
   end
 
   create_table "tasks", :force => true do |t|
-    t.string   "name",                 :null => false
+    t.string   "name",                                  :null => false
     t.text     "description"
     t.integer  "priority"
     t.datetime "assigned_at"
-    t.integer  "hours_invoice"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.float    "hours_invoice",        :default => 0.0, :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.datetime "planned_to_start_at"
     t.integer  "task_type_id"
     t.integer  "case_id"
-    t.integer  "author_user_id",       :null => false
+    t.integer  "author_user_id",                        :null => false
     t.integer  "assignee_user_id"
     t.boolean  "is_activity"
     t.string   "files_signature"
