@@ -11,7 +11,8 @@ User.create(
             password: '12345',
             password_confirmation: '12345',
             firstname: 'Jan',
-            lastname: 'Testowy'            
+            lastname: 'Testowy',
+            admin: true
             )
             
 
