@@ -6,6 +6,8 @@ Kancelaria::Application.routes.draw do
   match 'tasks/:id/selfresign' => 'tasks#selfresign'
 
   resources :activities
+
+  get "reports/index"
   
   get "admin/index"
 
