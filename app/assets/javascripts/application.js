@@ -12,14 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require knockout
 //= require bootstrap
-//= require ./fullcalendar/fullcalendar
+//= require_tree ./fullcalendar
 //= require chosen.jquery
 //= require bootstrap-colorpicker
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker.pl.js
 //= require bootstrap-timepicker
-//= require_tree .
+
 
 $(function() {
 	$(document).ready(function() {
