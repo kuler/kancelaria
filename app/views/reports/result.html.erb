@@ -1,0 +1,5 @@
+<h3>Rezultat</h3>
+<%= render 'users' if @options[:scope]==:user%>
+<%= render 'clients' if @options[:scope]==:client%>
+<h3>Nowy raport</h3>
+<%= render 'form'%>

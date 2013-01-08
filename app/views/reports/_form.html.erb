@@ -1,0 +1,9 @@
+<h6>Opcje wyświetlania</h6>
+<%= simple_form_for :ropts, :url => '/reports/result' do |f| %>
+    <%= f.input :client, :collection=>@clients, :required=>false, :label_method => :shortname, :input_html => {:multiple=>true, :class => "chsn-select", "data-placeholder" => "Wybierz klientów..." }%>
+    <%= f.input :user, :collection=>@users, :required=>false, :label_method => :label, :input_html => {:multiple=>true, :class => "chsn-select", "data-placeholder" => "Wybierz użytkowników..." }%>
+    <div class='btn-group'>
+      <%= f.button :submit, :id => "user", :value => t(:report_user), :class => "btn btn-primary"%>
+      <%= f.button :submit, :id => "client", :value => t(:report_client), :class => "btn btn-primary"%>
+    </div>
+<% end %>

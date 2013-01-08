@@ -1,0 +1,38 @@
+<table class="table table-bordered">
+  <%
+     @data.each do |id, subject|
+  %>
+      <tr class='info'>
+        <td colspan='6'><h4><%= subject[:subject_label] %></h4></td>
+      </tr>
+      <%
+         subject[:subject_activities].each do |activity|
+      %>
+          <tr>
+            <td>
+              <%= activity.case.name %>
+            </td>
+            <td>
+              <%= activity.assignee.label %>
+            </td>
+            <td>
+              <%= activity.name %>
+            </td>
+            <td>
+              <%= activity.started_at %>
+            </td>
+            <td>
+              <%= activity.real_time %>
+            </td>
+            <td>
+              <%= activity.invoice_time %>
+            </td>
+          </tr>
+      <% end %>
+      <tr>
+        <td colspan='4'><span class='pull-right'>Suma</span></td>
+        <td><%=subject[:subtotal_real]%>h</td>
+        <td><%=subject[:subtotal_invoice]%>h</td>
+      </tr>
+  <% end %>
+</table>

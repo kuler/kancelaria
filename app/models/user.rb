@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :clients
   
-	attr_accessible :password_confirmation, :name, :password, :firstname, :lastname, :active, :admin
+	attr_accessible :password_confirmation, :name, :password, :firstname, :lastname, :active, :admin, :label
 	attr_accessor :password_confirmation
 	
 	before_save :encrypt_password
@@ -22,7 +22,11 @@ class User < ActiveRecord::Base
       false
     end
   end
-  
+
+  def label
+    self.firstname+' '+self.lastname
+  end
+
   protected
 	
 	def encrypt_password
@@ -30,5 +34,5 @@ class User < ActiveRecord::Base
       self.salt = BCrypt::Engine.generate_salt
       self.password = BCrypt::Engine.hash_secret password, salt
     end       
-  end 
+  end
 end
