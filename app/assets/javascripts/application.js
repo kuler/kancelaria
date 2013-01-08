@@ -21,7 +21,6 @@
 //= require bootstrap-datepicker.pl.js
 //= require bootstrap-timepicker
 
-
 $(function() {
 	$(document).ready(function() {
 		$('.date-selector').datepicker({

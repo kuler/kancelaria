@@ -1,9 +1,18 @@
-﻿<%= simple_form_for(@task) do |f| %>
+﻿<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "client_case" %>
+<% end %>
+
+<%= simple_form_for(@task) do |f| %>
 <%= f.error_notification %>
 
 <div class="form-inputs">
-		
-	<%= f.association :case, :label_method => :name, :input_html => { :class => "chsn-select", "data-placeholder" => "Przydziel sprawę..." }%>
+
+    <%= f.input :client, :collection => Client.all, :label_method => :shortname, :input_html => { :class => "client-selector chsn-select", "data-placeholder" => "Wybierz Klienta..." } %>
+    <%= f.association :case, :label_method => :name, :input_html =>
+          { :class => "case-selector chsn-select",
+            "data-placeholder" => "Przydziel sprawę...",
+            "data-bind" => "options: cases, optionsText: 'name', optionsValue: 'id', value: selectedCase, chosen: true" }
+    %>
 	<%= f.input :files_signature, wrapper: :bootstrap %>
 	<%= f.association :type, :input_html => { :class => "chsn-select", "data-placeholder" => "Wybierz typ zadania..." }, wrapper: :bootstrap %>	
 	

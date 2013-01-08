@@ -2,7 +2,12 @@ class CasesController < ApplicationController
   # GET /cases
   # GET /cases.json
   def index
-    @cases = Case.find(:all, :conditions => {:active => true})
+    conditions = {:active => true}
+    if(params[:client_id])
+      conditions[:client_id] = params[:client_id]
+    end
+    @cases = Case.all(:conditions => conditions)
+
 
     respond_to do |format|
       format.html # index.html.erb

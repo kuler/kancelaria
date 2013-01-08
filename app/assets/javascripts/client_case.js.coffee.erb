@@ -1,0 +1,33 @@
+<% url = Kancelaria::Application.routes.url_helpers %>
+
+class ClientCaseModel
+  constructor: ->
+    @selectedClient = ko.observable()
+    @selectedCase = ko.observable()
+    @cases = ko.observableArray()
+    ko.computed =>
+        client = @selectedClient()
+        if client == undefined
+            @cases([])
+        else
+            $.getJSON('<%= url.cases_path format: :json %>?client_id=' + client, null, @cases)
+
+$ ->
+    ko.bindingHandlers.chosen =
+        update: (element, valueAccessor, allBindingsAccessor, viewModel) ->
+            $(element).chosen();
+            $(element).trigger("liszt:updated");
+            return
+
+    model = new ClientCaseModel()
+    window.ccmodel = model
+
+    $(document).ready ->
+        model.selectedCase($('.case-selector option:selected').val())
+        ko.applyBindings(model)
+        $('.client-selector').bind 'change', ->
+            model.selectedClient($(this).val())
+            return
+        return
+
+    return
