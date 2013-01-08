@@ -71,6 +71,8 @@ pl:
   search:
     querybox: "Wpisz aby wyszukać..."
 
+  report_user: "wg użytkowników"
+  report_client: "wg klientów"
   #date
   date:
     order:

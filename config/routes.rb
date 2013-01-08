@@ -8,6 +8,7 @@ Kancelaria::Application.routes.draw do
   resources :activities
 
   get "reports/index"
+  post "reports/result"
   
   get "admin/index"
 
