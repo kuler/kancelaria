@@ -1,5 +1,7 @@
-.navbar,
-.row-fluid div.span2,
-.report-options{
-    display: none;
+@media print {
+    .navbar,
+    .row-fluid div.span2,
+    .report-options{
+        display: none;
+    }
 }
