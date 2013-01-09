@@ -1,0 +1,64 @@
+class CalendarModel
+    taskType: null
+    user: null
+    client: null
+    eventSources: []
+    setTaskType: (type) ->
+        if type? && $.trim(type) != ""
+            @taskType = type
+        else
+            @taskType = null
+
+    setUser: (user) ->
+        if user? && $.trim(user) != ""
+            @user = user
+        else
+            @user = null
+
+    setClient: (client) ->
+        if client? && $.trim(client) != ""
+            @client = client
+        else
+            @client = null
+
+    buildEventSourceUrl: (source) ->
+        url = "#{source}?"
+
+        url += "task_type=#{@taskType}&" if @taskType?
+        url += "user=#{@user}&" if @user?
+        url += "client=#{@client}&" if @client?
+        return url
+    manageEventSource: (source)     ->
+        if ($.inArray source, @eventSources) >= 0
+            @eventSources = @eventSources.filter (e) -> e isnt source
+        else
+            @eventSources.push source
+        return
+    reload: ->
+        self = @
+        $('#calendar').fullCalendar('removeEvents').fullCalendar('removeEventSources');
+        for source in @eventSources
+            $('#calendar').fullCalendar('addEventSource', @buildEventSourceUrl source)
+        return
+
+$ ->
+    calendarModel = new CalendarModel()
+    $(document).ready ->
+        $('#calendar_task_type_filter').bind 'change', ->
+            calendarModel.setTaskType $('#calendar_task_type_filter').val()
+            calendarModel.reload()
+            return
+        $('#calendar_user_filter').bind 'change', ->
+            calendarModel.setUser $('#calendar_user_filter').val()
+            calendarModel.reload()
+            return
+        $('#calendar_client_filter').bind 'change', ->
+            calendarModel.setClient $('#calendar_client_filter').val()
+            calendarModel.reload()
+            return
+        $('.calendar-filters button').bind 'click', ->
+            calendarModel.manageEventSource $(this).attr('data-event-source')
+            calendarModel.reload()
+            return
+        return
+    return

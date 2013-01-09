@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130101170848) do
+ActiveRecord::Schema.define(:version => 20130109155450) do
 
   create_table "cases", :force => true do |t|
     t.string   "name",                              :null => false
@@ -45,8 +45,9 @@ ActiveRecord::Schema.define(:version => 20130101170848) do
   create_table "task_types", :force => true do |t|
     t.string   "name"
     t.string   "color"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.boolean  "show_in_filter"
   end
 
   create_table "tasks", :force => true do |t|

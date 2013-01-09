@@ -1,12 +1,30 @@
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "views/calendar" %>
+<% end %>
+
 <div id="calendar"></div>
 <% content_for :aside do %>
 	<hr/>
 	<h6>Opcje wyświetlania</h6>
 	<div id='calendar-filters'>
 		<div class="btn-group calendar-filters" data-toggle="buttons-checkbox">
-		  <button data-event-source='<%= activities_path format: :json %>' type="button" class="btn btn-primary">Czynności</button>
-		  <button data-event-source='<%= tasks_path format: :json %>' type="button" class="btn btn-primary">Zadania</button>
+		  <button data-event-source='<%= activities_path format: :json %>' type="button" class="btn">Czynności</button>
+		  <button data-event-source='<%= tasks_path format: :json %>' type="button" class="btn">Zadania</button>
 		</div>
+        <hr />
+        <div>
+            <%= select 'calendar', 'task_type_filter', [[]].concat(TaskType.showed_in_filters.map { |t| [t.name, t.id]}), {}, 'data-placeholder' => "Wybierz typ...", :class => "chsn-select" %>
+        </div>
+        <% if current_user.admin %>
+            <hr />
+            <div>
+            <%= select 'calendar', 'user_filter', [[]].concat(User.all.map { |u| [u.label, u.id]}), {}, 'data-placeholder' => "Wybierz użytkownika...", :class => "chsn-select" %>
+            </div>
+        <% end %>
+        <hr />
+        <div>
+        <%= select 'calendar', 'client_filter', [[]].concat(Client.all.map { |c| [c.fullname, c.id]}), {}, 'data-placeholder' => "Wybierz klienta...", :class => "chsn-select" %>
+        </div>
 	</div>
 <% end %>
 <% content_for :scripts do %>
@@ -81,12 +99,4 @@ $('#calendar').fullCalendar({
 	},	
 	editable: true
 })
-
-$('.calendar-filters button').bind('click', function() {
-	if(!$(this).hasClass('active')) {
-		$('#calendar').fullCalendar('addEventSource', $(this).attr('data-event-source'))
-	} else {
-		$('#calendar').fullCalendar('removeEventSource', $(this).attr('data-event-source'))
-	}	
-}).trigger('click')
 <% end %>

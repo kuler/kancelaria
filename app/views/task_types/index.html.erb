@@ -11,7 +11,10 @@
 	<tbody>
 		<% @task_types.each do |task_type| %>
 		<tr>
-			<td><%= task_type.name %></td>
+			<td>
+              <i title="<%if task_type.show_in_filter%>Pokaż w filtach<%else%>Nie pokazuj w filtrach<%end%>" class="icon-filter" <% if not task_type.show_in_filter %>style="opacity: 0.2"<%end%>></i>
+              <%= task_type.name %>
+            </td>
 			<td><div style="width: 20px; height: 20px; border: 1px solid black; background-color: <%= task_type.color %>"></div></td>
 
 			<td><%= link_to 'Edit', edit_task_type_path(task_type), class: "btn btn-mini btn-primary" %>

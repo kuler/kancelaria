@@ -2,7 +2,21 @@ class ActivitiesController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @activities = Activity.order("planned_to_start_at DESC, started_at DESC")
+    conditions = {}
+
+    conditions[:task_type_id] = params[:task_type] if(params[:task_type])
+
+    if current_user.admin
+      conditions[:assignee_user_id] = [params[:user],nil] if(params[:user])
+    else
+      conditions[:assignee_user_id] = [current_user.id, nil]
+    end
+
+    if params[:client]
+      @activities = Activity.joins(:case).where( :cases => { :client_id => params[:client]} ).all(:conditions => conditions)
+    else
+      @activities = Activity.all(:conditions => conditions)
+    end
 
 
     respond_to do |format|

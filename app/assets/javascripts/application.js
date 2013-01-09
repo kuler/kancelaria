@@ -37,7 +37,7 @@ $(function() {
 			showInputs: false
 		})
 		
-		$('.chsn-select').chosen()
+		$('.chsn-select').chosen({allow_single_deselect: true})
 	})
 })
 

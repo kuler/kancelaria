@@ -51,3 +51,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'simple_form'
 gem 'mask_validator'
+
+gem 'coffeebeans'
