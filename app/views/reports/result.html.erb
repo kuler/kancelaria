@@ -1,6 +1,9 @@
 <h3>Raport <%= @options[:scope] == :user ? t(:report_user) : t(:report_client)%></h3>
 <%= render 'users' if @options[:scope]==:user%>
 <%= render 'clients' if @options[:scope]==:client%>
+<div class='report-options'>
+  <%= link_to_function("Drukuj", "javascript:print()") %>
+</div>
 <%= content_for :aside do %>
 <h5>Nowy raport</h5>
 <%= render 'form'%>
