@@ -23,6 +23,8 @@ class Task < ActiveRecord::Base
 	belongs_to :assignee, :class_name => 'User', :foreign_key => 'assignee_user_id'	
   belongs_to :type, :class_name => 'TaskType', :foreign_key => 'task_type_id'
 
+  validates :type, :name,  :presence => true
+
   def client= val
 
   end
