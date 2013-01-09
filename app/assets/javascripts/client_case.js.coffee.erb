@@ -28,6 +28,7 @@ $ ->
         $('.client-selector').bind 'change', ->
             model.selectedClient($(this).val())
             return
+        .trigger 'change'
         return
 
     return
