@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+    // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -20,7 +20,6 @@
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker.pl.js
 //= require bootstrap-timepicker
-//= require_tree .
 
 $(function() {
 	$(document).ready(function() {
