@@ -20,6 +20,7 @@
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker.pl.js
 //= require bootstrap-timepicker
+//= require_tree .
 
 $(function() {
 	$(document).ready(function() {

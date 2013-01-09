@@ -1,4 +1,5 @@
 class Activity < Task
+  include Modules::TimeHelper
   set_table_name 'tasks'
   set_inheritance_column nil
 
@@ -7,26 +8,24 @@ class Activity < Task
   default_scope :conditions => { :is_activity => true }
 
   def invoice_time
-
-    return "" if not self.hours_invoice
-
-    h = self.hours_invoice.floor
-    m = (self.hours_invoice % 1 * 60).round
-    return "%02d:%02d" % [h,m]
+    return "" if self.new_record?
+    hours_to_time_s self.hours_invoice
   end
 
   def invoice_time= time
-    if not time or time.empty?
-      self.hours_invoice = nil
+    self.hours_invoice = time_s_to_hours time
+  end
+
+  def real_time
+    return hours_to_time_s(self.hours_real)
+  end
+
+  def hours_real
+    if self.started_at and self.finished_at
+      m = (self.finished_at - self.started_at).to_f / 3600
     else
-      subs = time.split(":")
-      h = subs[0].to_i
-      m = subs[1].to_f/60
-      self.hours_invoice = h+m;
+      m = 0
     end
-
-
-
   end
 
 end
