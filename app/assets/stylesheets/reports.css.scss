@@ -1,3 +1,44 @@
 // Place all the styles related to the reports/reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.reports{
+  #content{
+    .btn-group{
+      margin-left: 175px;
+    }
+  }
+
+  aside{
+    select{
+      width: 180px;
+    }
+
+    .form-horizontal .control-group{
+      margin-bottom: 0px;
+    }
+
+    .form-horizontal .controls {
+      margin-left: 0px;
+    }
+
+    .form-horizontal .control-label {
+      float: none;
+      padding-top: 5px;
+      text-align: left;
+    }
+
+    h6{
+      display: none;
+    }
+
+    .btn-group{
+      margin-top: 20px;
+    }
+
+    .btn{
+      padding: 2px 4px;
+      font-size: 12px;
+    }
+  }
+}
