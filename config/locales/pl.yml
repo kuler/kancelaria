@@ -1,5 +1,14 @@
 ﻿
 pl:
+  general:
+    display_options: "Opcje wyświetlania"
+    are_you_sure?: "Czy jesteś pewny/pewna?"
+  layout:
+    logged_as: "Zalogowany jako"
+  tasks:
+    assign: "Przydziel"
+    resign: "Zrezygnuj"
+
   #labels
   simple_form:
     labels:
@@ -24,6 +33,33 @@ pl:
         name: "Nazwa"
         description: "Opis"
         user: "Utworzył"
+        files_signature: "Sygnatura akt"
+      task:
+        client: "Klient"
+        case: "Sprawa"
+        files_signature: "Sygnatura akt"
+        type: "Typ"
+        name: "Krótki opis"
+        description: "Komentarz"
+        planned_at: "Termin"
+        assignee: "Pracownik"
+      activity:
+        client: "Klient"
+        case: "Sprawa"
+        files_signature: "Sygnatura akt"
+        type: "Typ"
+        name: "Krótki opis"
+        description: "Komentarz"
+        completed_at: "Wykonano"
+        invoice_time: "Czas fakturowany (h)"
+      task_type:
+        name: "Nazwa"
+        color: "Kolor"
+        show_in_filter: "Widok kalendarza?"
+      ropts:
+        client: "Klienci"
+        user: "Użytkownicy"
+
              
   errors:
     messages:

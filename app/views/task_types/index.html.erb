@@ -17,8 +17,8 @@
             </td>
 			<td><div style="width: 20px; height: 20px; border: 1px solid black; background-color: <%= task_type.color %>"></div></td>
 
-			<td><%= link_to 'Edit', edit_task_type_path(task_type), class: "btn btn-mini btn-primary" %>
-			<%= link_to 'Destroy', task_type, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini btn-danger" %></td>
+			<td><%= link_to t('edit'), edit_task_type_path(task_type), class: "btn btn-mini btn-primary" %>
+			<%= link_to t('remove'), task_type, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini btn-danger" %></td>
 		</tr>
 		<% end %>
 	</tbody>

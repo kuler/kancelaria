@@ -5,7 +5,7 @@
 <div id="calendar"></div>
 <% content_for :aside do %>
 	<hr/>
-	<h6>Opcje wyświetlania</h6>
+	<h6><%=t("general.display_options")%></h6>
 	<div id='calendar-filters'>
 		<div class="btn-group calendar-filters" data-toggle="buttons-checkbox">
 		  <button data-event-source='<%= activities_path format: :json %>' type="button" class="btn">Czynności</button>

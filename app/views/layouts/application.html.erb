@@ -20,7 +20,7 @@
 						
 						<p class="navbar-text pull-right">
 							<% if current_user %>
-							Logged in as <a hr	ef="#" class="navbar-link"><%=current_user.name%></a>
+							<%=t("layout.logged_as")%> <a hr	ef="#" class="navbar-link"><%=current_user.name%></a>
 							<% end %>
 						</p>
 						
