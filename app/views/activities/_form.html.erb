@@ -1,6 +1,8 @@
 ﻿<% content_for :javascript_includes do %>
     <%= javascript_include_tag "client_case" %>
+    <%= javascript_include_tag "activities" %>
 <% end %>
+
 
 <%= simple_form_for(@activity) do |f| %>
 <%= f.error_notification %>
@@ -27,7 +29,7 @@
 
 <div class="form-actions">
 	<%= link_to t('back'), activities_path, class: "btn" %>
-	<%= f.button t('save'), class: "btn btn-primary" %>
+	<%= f.submit t('save'), class: "btn btn-primary" %>
 </div>
 <% end %>
 
