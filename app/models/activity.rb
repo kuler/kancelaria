@@ -5,7 +5,7 @@ class Activity < Task
 
   attr_accessible :case_id, :assignee_user_id, :type, :task_type_id, :name, :description, :files_signature, :invoice_time
 
-  validates :invoice_time, :completed_at, :presence => true
+  validates :hours_invoice, :completed_at, :presence => true
 
   default_scope :conditions => { :is_activity => true }
 
